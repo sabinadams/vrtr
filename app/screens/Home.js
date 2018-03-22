@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: 'Welcome'
+        title: 'Home Page'
     }
     render() {
         return (
