@@ -8,11 +8,17 @@ function setTopLevelNavigator(navigatorRef) {
 }
 
 async function navigate(routeName, params) {
+    // Grabs token (Could be from Redux store)
     let token = await AsyncStorage.getItem('userToken')
+    // If you had a token, woot woot, else go to login page and clear router state
+    routeName = token ? routeName : 'Auth'
+    // If you have a token and were trying to go to login page, too bad
+    if (['Auth', 'Login'].indexOf(routeName) > -1 && token) return
+    // Perform navigation
     _navigator.dispatch(
         NavigationActions.navigate({
             type: NavigationActions.NAVIGATE,
-            routeName: token ? routeName : 'Auth',
+            routeName: routeName,
             params: token ? params : {},
         })
     );
