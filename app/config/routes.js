@@ -2,15 +2,15 @@
 // https://reactnavigation.org/docs/deep-linking.html            (useful for opening app from website)
 // https://reactnavigation.org/docs/auth-flow.html               (will be necessary for auth stuff)
 
-import { SwitchNavigator, StackNavigator } from 'react-navigation';
-
+import { SwitchNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
+import NavigationService from '../services/NavigationService'
 // Screens
 import AuthLoading from '../screens/Loading/AuthLoading'
 import HomeScreen from '../screens/Home'
 import LoginScreen from '../screens/Login'
 
 // Stacks
-const AppStack = StackNavigator({ Home: HomeScreen })
+const AppStack = DrawerNavigator({ Home: HomeScreen })
 const AuthStack = StackNavigator({ Login: LoginScreen })
 
 // There can also be other sets of routes for other things like Admin users, Premium users, etc...

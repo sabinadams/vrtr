@@ -1,6 +1,14 @@
 import { NavigationActions } from 'react-navigation';
 import { AsyncStorage } from 'react-native'
 
+/*********************************************************************************************
+ * Using Default Back won't check token. We can build custom header with custom back button. 
+ * If we use this service to define back functionality we can check token on back nav.
+ * We will probably want a custom header anyways
+ * I suggest by default we never show the header/backbutton. We just add it on screens where you 
+ * would actually go back
+ *********************************************************************************************/
+
 let _navigator;
 
 function setTopLevelNavigator(navigatorRef) {

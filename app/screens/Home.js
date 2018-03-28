@@ -4,7 +4,9 @@ import NavigationService from '../services/NavigationService';
 
 export default class HomeScreen extends React.Component {
     // Custom headers can be included too
-    static navigationOptions = { title: 'Home Screen' }
+    static navigationOptions = {
+        title: 'Home Screen'
+    }
     constructor(props) {
         super(props);
     }
@@ -21,6 +23,7 @@ export default class HomeScreen extends React.Component {
                 <Button title='Log Out' onPress={() => this.logout()}></Button>
                 <Button title='Clear Token' onPress={() => AsyncStorage.clear()}></Button>
                 <Button title='Home' onPress={() => NavigationService.navigate('Home')}></Button>
+                <Button title="Toggle Menu" onPress={() => this.props.navigation.navigate('DrawerToggle')}></Button>
             </View>
         )
     }
