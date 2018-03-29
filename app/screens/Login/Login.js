@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Button, AsyncStorage } from 'react-native'
-import NavigationService from '../services/NavigationService';
+import NavigationService from '../../services/NavigationService';
 
 export default class LoginScreen extends React.Component {
     // Custom headers can be included too
