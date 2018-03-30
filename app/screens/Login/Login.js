@@ -12,7 +12,7 @@ export default class LoginScreen extends React.Component {
                     this.props.loggedin is a variable mapped to this.props in the mapStateToProps 
                     and applied in the connect() function. See index.js 
                 */}
-                <Text>Login Screen {this.props.loggedin.toString()} {this.props.test}</Text>
+                <Text>Login Screen {this.props.loggedin.toString()}</Text>
                 <Button title='Log In' onPress={() => this.props.getTest()}></Button>
             </View>
         )
