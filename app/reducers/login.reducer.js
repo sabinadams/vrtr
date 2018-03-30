@@ -1,18 +1,25 @@
-import * as actionTypes from '../actionTypes';
+import * as actionTypes from '../actionTypes'
 
+// Default Login state
 const DEFAULT_STATE = { loggedin: false }
 
-// Reducer
+// Reducer (Responds to actions based on type)
 export default function( state = DEFAULT_STATE, action ) {
     switch( action.type ) {
-        case actionTypes.ON_LOGGIN:
+        case actionTypes.LOGIN_ATTEMPT:
+            return state
+        case actionTypes.LOGIN_SUCCESS:
             return {...state, loggedin: true}
+        case actionTypes.LOGIN_FAIL:
+            return {...state, loggedin: false}
+        case actionTypes.LOGOUT:
+            return {...state, loggedin: false}
         default:
             return state
     }
 }
 
-// Selectors
+// Selectors (Returns the Login state. Can return a single value from the state or the whole state)
 export const getLogin = state => ({
     loggedin: state.loggedin
 })

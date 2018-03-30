@@ -1,4 +1,4 @@
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation'
 import { AsyncStorage } from 'react-native'
 
 /*********************************************************************************************
@@ -9,10 +9,12 @@ import { AsyncStorage } from 'react-native'
  * would actually go back
  *********************************************************************************************/
 
-let _navigator;
+// This should use redux eventually
+
+let _navigator
 
 function setTopLevelNavigator(navigatorRef) {
-    _navigator = navigatorRef;
+    _navigator = navigatorRef
 }
 
 async function navigate(routeName, params) {
@@ -29,11 +31,11 @@ async function navigate(routeName, params) {
             routeName: routeName,
             params: token ? params : {},
         })
-    );
+    )
 }
 
 // add other navigation functions that you need and export them
 export default {
     navigate,
     setTopLevelNavigator,
-};
+}
