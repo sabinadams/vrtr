@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, Button, AsyncStorage } from 'react-native'
-import NavigationService from '../services/NavigationService';
 
 export default class HomeScreen extends React.Component {
     // Custom headers can be included too
@@ -11,18 +10,13 @@ export default class HomeScreen extends React.Component {
         super(props);
     }
 
-    async logout() {
-        await AsyncStorage.clear()
-        NavigationService.navigate('Auth')
-    }
-
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Home Screen</Text>
-                <Button title='Log Out' onPress={() => this.logout()}></Button>
+                <Button title='Log Out' onPress={() => this.props.logout()}></Button>
                 <Button title='Clear Token' onPress={() => AsyncStorage.clear()}></Button>
-                <Button title='Home' onPress={() => NavigationService.navigate('Home')}></Button>
+                <Button title='Home' onPress={() => this.props.navHome()}></Button>
                 <Button title="Toggle Menu" onPress={() => this.props.navigation.navigate('DrawerToggle')}></Button>
             </View>
         )
