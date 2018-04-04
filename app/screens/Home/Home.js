@@ -16,7 +16,7 @@ export default class HomeScreen extends React.Component {
                 <Text>Home Screen</Text>
                 <Button title='Log Out' onPress={() => this.props.logout()}></Button>
                 <Button title='Clear Token' onPress={() => AsyncStorage.clear()}></Button>
-                <Button title='Home' onPress={() => this.props.navHome()}></Button>
+                <Button title='Home' onPress={() => this.props.navigation.navigate('Home')}></Button>
                 <Button title="Toggle Menu" onPress={() => this.props.navigation.navigate('DrawerToggle')}></Button>
             </View>
         )

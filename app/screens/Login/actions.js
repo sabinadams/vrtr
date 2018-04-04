@@ -20,14 +20,13 @@ export function getTest() {
     return async function (dispatch, getState) {
         // Dispatch using plain struct to go right away
         dispatch(login_attempt)
-        await AsyncStorage.setItem('userToken', '1234')
-        if ( await AsyncStorage.getItem('userToken') == '1234') {
+        await AsyncStorage.setItem('userToken', '1234').then(() => {
             dispatch(login_success())
             dispatch(NavigationActions.navigate({
                 routeName: 'App',
             }));
-        } else {
-            dispatch(login_failure)
-        }
+        })
+
+        // or dispatch(login_failure()) if not successful
     }
 }

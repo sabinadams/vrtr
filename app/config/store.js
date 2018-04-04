@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import rootReducer from '../shared/reducers/root.reducer'
 import thunk from 'redux-thunk'
-import { middleware } from './nav-utils';
+import { middleware, nav_auth } from './nav-utils';
 export default function configureStore( initialState = undefined ) {
 
     
@@ -13,7 +13,8 @@ export default function configureStore( initialState = undefined ) {
         applyMiddleware( 
             // createLogger(), 
             thunk, 
-            middleware 
+            middleware,
+            nav_auth
         )
     )
     return createStore(rootReducer, initialState, enhancer)

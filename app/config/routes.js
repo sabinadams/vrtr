@@ -2,12 +2,11 @@
 // https://reactnavigation.org/docs/deep-linking.html            (useful for opening app from website)
 // https://reactnavigation.org/docs/auth-flow.html               (will be necessary for auth stuff)
 
-import { SwitchNavigator, StackNavigator, DrawerNavigator } from 'react-navigation'
+import { SwitchNavigator, StackNavigator, DrawerNavigator, addNavigationHelpers } from 'react-navigation'
 // Screens
 import AuthLoading from '../screens/Loading/AuthLoading'
 import HomeScreen from '../screens/Home'
 import LoginScreen from '../screens/Login'
-
 import React from 'react';
 
 import PropTypes from 'prop-types';
@@ -15,7 +14,7 @@ import { connect } from 'react-redux';
 import { addListener } from './nav-utils';
 
 // Stacks
-const AppStack = DrawerNavigator({ Home: HomeScreen })
+const AppStack = StackNavigator({ Home: HomeScreen })
 const AuthStack = StackNavigator({ Login: LoginScreen })
 
 // There can also be other sets of routes for other things like Admin users, Premium users, etc...
@@ -43,11 +42,11 @@ class AppWithNavigationState extends React.Component {
         const { dispatch, nav } = this.props;
         return (
             <SwitchNav
-                navigation={{
-                    dispatch,
+                navigation={addNavigationHelpers({
+                    dispatch: dispatch,
                     state: nav,
-                    addListener,
-                }}
+                    addListener
+                })}
             />
         );
     }
