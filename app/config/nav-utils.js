@@ -14,10 +14,9 @@ const addListener = createReduxBoundAddListener("root");
 
 // Runs on each dispatch to store. Will only listen to Navigation actions in the switch
 const nav_auth = store => next => async action => {
-    console.log(action)
+    // console.log(action) <-- Uncomment to see printouts of each dispatch to the store (including non-nav things)
     // If there was no token
     if ( !await AsyncStorage.getItem('userToken') ) {
-
         switch (action.type) {
             // If you were navigating
             case NavigationActions.navigate.toString():
@@ -32,9 +31,7 @@ const nav_auth = store => next => async action => {
             case NavigationActions.back.toString():
                 if (action.routeName && ['Login', 'Auth'].indexOf(action.routeName) > -1) return next(action)
                 // Dispatch a route change to the store
-                store.dispatch(NavigationActions.navigate({
-                    routeName: 'Auth'
-                }))
+                store.dispatch(NavigationActions.navigate({ routeName: 'Auth' }))
                 // Log out
                 store.dispatch({ type: 'unauthorized' });
                 AsyncStorage.clear()
@@ -43,7 +40,7 @@ const nav_auth = store => next => async action => {
         }
     }
 
-    // Return the next stat
+    // Return the next state
     return next(action)
 }
 
