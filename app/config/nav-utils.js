@@ -22,7 +22,7 @@ const nav_auth = store => next => async action => {
                 // Change destination route to Auth
                 action.routeName = 'Auth'
                 // Clear out all of local storage (logout)
-                store.dispatch({ type: 'logout' });
+                store.dispatch({ type: 'unauthorized' });
                 AsyncStorage.clear()
             break;
             // If you were going back using menu
@@ -30,7 +30,7 @@ const nav_auth = store => next => async action => {
                 // Dispatch a route change to the store
                 store.dispatch(NavigationActions.navigate('Auth'))
                 // Log out
-                store.dispatch({ type: 'logout' });
+                store.dispatch({ type: 'unauthorized' });
                 AsyncStorage.clear()
                 return null;
             break;

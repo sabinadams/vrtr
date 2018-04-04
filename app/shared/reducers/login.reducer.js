@@ -12,6 +12,8 @@ export default function( state = DEFAULT_STATE, action ) {
         case actionTypes.LOGOUT:
             return {...state, loggedin: false}
         case actionTypes.LOGIN_ATTEMPT:
+        case actionTypes.UNAUTHORIZED:
+            return {...state, loggedin: false }
         default: 
             return state
     }
