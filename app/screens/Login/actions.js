@@ -16,7 +16,7 @@ export const login_failure = {
 }
 
 // Async action using thunk
-export function getTest() {
+export function login() {
     return async function (dispatch, getState) {
         // Dispatch using plain struct to go right away
         dispatch(login_attempt)

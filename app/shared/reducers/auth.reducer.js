@@ -20,6 +20,6 @@ export default function( state = DEFAULT_STATE, action ) {
 }
 
 // Selectors (Returns the Login state. Can return a single value from the state or the whole state)
-export const getLogin = state => ({
+export const getAuth = state => ({
     loggedin: state.loggedin
 })

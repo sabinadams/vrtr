@@ -23,6 +23,7 @@ const DEFAULT_STATE = SwitchNav.router.getStateForAction(
         routeName: 'App',
     }));
 ************************************************************/
+
 export default function (state = DEFAULT_STATE, action) {
     let nextState;
     switch (action.type) {

@@ -2,10 +2,10 @@ import React from 'react'
 import { View, Text, Button, AsyncStorage } from 'react-native'
 
 export default class HomeScreen extends React.Component {
-    // Custom headers can be included too
     static navigationOptions = {
-        title: 'Home Screen'
+        title: 'Home'
     }
+    // Custom headers can be included too
     constructor(props) {
         super(props);
     }
@@ -13,7 +13,7 @@ export default class HomeScreen extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text>Home Screen</Text>
+                <Text>{this.props.navigation.state.routeName}</Text>
                 <Button title='Log Out' onPress={() => this.props.logout()}></Button>
                 <Button title='Clear Token' onPress={() => AsyncStorage.clear()}></Button>
                 <Button title='Home' onPress={() => this.props.navigation.navigate('Home')}></Button>
