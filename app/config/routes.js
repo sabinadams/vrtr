@@ -2,13 +2,12 @@
 // https://reactnavigation.org/docs/deep-linking.html            (useful for opening app from website)
 // https://reactnavigation.org/docs/auth-flow.html               (will be necessary for auth stuff)
 
-import { SwitchNavigator, StackNavigator, DrawerNavigator, addNavigationHelpers } from 'react-navigation'
+import { SwitchNavigator, StackNavigator } from 'react-navigation'
 // Screens
 import AuthLoading from '../screens/Loading/AuthLoading'
 import HomeScreen from '../screens/AppStack/Home'
 import LoginScreen from '../screens/AuthStack/Login'
 import RegisterScreen from '../screens/AuthStack/Register'
-import React from 'react';
 import { addListener } from './nav-utils';
 
 // Stacks

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Keyboard, View, Text, TouchableOpacity, StyleSheet, Image, TextInput, Alert } from 'react-native'
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, TextInput, Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class LoginScreen extends React.Component {
@@ -22,15 +22,10 @@ export default class LoginScreen extends React.Component {
         )
     }
 
-    gotoRegister() {
-        console.log("Registering....")
-        this.props.navigation.navigate('Register')
-    }
-    
     render() {
         return (
             <ScrollView scrollEnabled={false} contentContainerStyle={styles.viewContainer}>
-                <TouchableOpacity style={styles.signupContainer} onPress={() => this.gotoRegister()}>
+                <TouchableOpacity style={styles.signupContainer} onPress={() => this.props.navigation.navigate('Register')}>
                     <Text style={styles.signup}>Sign Up</Text>
                 </TouchableOpacity>
                 <Image style={styles.logo} source={require('./logo-color-blue.png')} />
