@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux' 
 import login, * as fromAuth from './auth.reducer'
-import nav from './nav.reducer'
 
 // Combines all the reducers into one so that we can just include this root reducer instead of 
 // including them all
 export default combineReducers({
-    login, 
-    nav
+    login
 })
 
 // Wraps the individual reducers' selectors into functions so that we can tell it which state to grab from

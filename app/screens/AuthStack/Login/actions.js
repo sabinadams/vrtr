@@ -1,7 +1,8 @@
-import * as actionTypes from '../../shared/actions/actionTypes'
+import * as actionTypes from '../../../shared/actions/actionTypes'
 import { AsyncStorage } from 'react-native'
 import { NavigationActions } from 'react-navigation';
- 
+import NavigationService from '../../../shared/services/NavigationService';
+
 export const login_attempt = {
     type: actionTypes.LOGIN_ATTEMPT 
 }
@@ -22,9 +23,7 @@ export function login() {
         dispatch(login_attempt)
         await AsyncStorage.setItem('userToken', '1234').then(() => {
             dispatch(login_success())
-            dispatch(NavigationActions.navigate({
-                routeName: 'App',
-            }));
+            NavigationService.navigate('App')
         })
 
         // or dispatch(login_failure()) if not successful

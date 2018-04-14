@@ -5,22 +5,20 @@
 import { SwitchNavigator, StackNavigator, DrawerNavigator, addNavigationHelpers } from 'react-navigation'
 // Screens
 import AuthLoading from '../screens/Loading/AuthLoading'
-import HomeScreen from '../screens/Home'
-import LoginScreen from '../screens/Login'
+import HomeScreen from '../screens/AppStack/Home'
+import LoginScreen from '../screens/AuthStack/Login'
+import RegisterScreen from '../screens/AuthStack/Register'
 import React from 'react';
-
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { addListener } from './nav-utils';
 
 // Stacks
 const AppStack = StackNavigator({ Home: HomeScreen })
-const AuthStack = StackNavigator({ Login: LoginScreen })
+const AuthStack = StackNavigator({ Login: LoginScreen, Register: RegisterScreen })
 
 // There can also be other sets of routes for other things like Admin users, Premium users, etc...
 // These don't need to all be Stack Navigators. They can also just be Screens (Like AuthLoading is)
 // SwitchNavigator makes it so that if you are in one Stack and move to a route in another stack it clears the router's state (including history)
-export const SwitchNav = SwitchNavigator(
+let SwitchNav = SwitchNavigator(
     {
         AuthLoading: AuthLoading,
         App: AppStack,
@@ -32,28 +30,4 @@ export const SwitchNav = SwitchNavigator(
 );
 
 
-class AppWithNavigationState extends React.Component {
-    static propTypes = {
-        dispatch: PropTypes.func.isRequired,
-        nav: PropTypes.object.isRequired,
-    };
-
-    render() {
-        const { dispatch, nav } = this.props;
-        return (
-            <SwitchNav
-                navigation={addNavigationHelpers({
-                    dispatch: dispatch,
-                    state: nav,
-                    addListener
-                })}
-            />
-        );
-    }
-}
-
-const mapStateToProps = state => ({
-    nav: state.nav
-});
-
-export default connect(mapStateToProps)(AppWithNavigationState);
+export default SwitchNav

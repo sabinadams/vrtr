@@ -1,7 +1,7 @@
-import Login from './Login'
+
+import Register from './Register'
 import { connect } from 'react-redux'
 import * as actions from './actions'
-import { getAuth } from '../../shared/reducers/root.reducer'
 
 // Maps values from the state into the props variable on the Login page. We get these from our getLogin function
 // const mapStateToProps = (state) => ({
@@ -24,4 +24,4 @@ import { getAuth } from '../../shared/reducers/root.reducer'
 */
 
 // Connects the Login page to the dispatch, actions, and props we set up 
-export default connect(null, actions)(Login)
+export default connect(null, actions)(Register)
