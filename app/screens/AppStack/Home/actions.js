@@ -1,7 +1,7 @@
 import * as actionTypes from '../../../shared/actions/actionTypes'
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation'
 import { AsyncStorage } from 'react-native'
-import NavigationService from '../../../shared/services/NavigationService';
+import NavigationService from '../../../shared/services/NavigationService'
 
 // Async action using thunk
 export function logout() {

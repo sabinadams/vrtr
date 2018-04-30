@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af965d86-2236-438b-981c-eece761b99bc" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
       <change beforePath="$PROJECT_DIR$/app/config/nav-utils.js" afterPath="$PROJECT_DIR$/app/config/nav-utils.js" />
       <change beforePath="$PROJECT_DIR$/app/config/routes.js" afterPath="$PROJECT_DIR$/app/config/routes.js" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Home/Home.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Home/actions.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Home/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Login/Login.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Login/actions.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Login/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Login/logo-dark.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Login/logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/app/config/store.js" afterPath="$PROJECT_DIR$/app/config/store.js" />
+      <change beforePath="$PROJECT_DIR$/app/screens/AppStack/Home/Home.js" afterPath="$PROJECT_DIR$/app/screens/AppStack/Home/Home.js" />
+      <change beforePath="$PROJECT_DIR$/app/screens/AppStack/Home/actions.js" afterPath="$PROJECT_DIR$/app/screens/AppStack/Home/actions.js" />
+      <change beforePath="$PROJECT_DIR$/app/screens/AuthStack/Login/Login.js" afterPath="$PROJECT_DIR$/app/screens/AuthStack/Login/Login.js" />
+      <change beforePath="$PROJECT_DIR$/app/screens/AuthStack/Login/actions.js" afterPath="$PROJECT_DIR$/app/screens/AuthStack/Login/actions.js" />
+      <change beforePath="$PROJECT_DIR$/app/screens/AuthStack/Register/Register.js" afterPath="$PROJECT_DIR$/app/screens/AuthStack/Register/Register.js" />
+      <change beforePath="$PROJECT_DIR$/app/screens/Loading/AuthLoading.js" afterPath="$PROJECT_DIR$/app/screens/Loading/AuthLoading.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -51,11 +49,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">

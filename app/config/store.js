@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import rootReducer from '../shared/reducers/root.reducer'
 import thunk from 'redux-thunk'
-import { middleware } from './nav-utils';
+import { middleware } from './nav-utils'
 export default function configureStore( initialState = undefined ) {
 
     
@@ -11,7 +11,7 @@ export default function configureStore( initialState = undefined ) {
     const enhancer = compose(
         // https://redux.js.org/advanced/async-actions#actions.js-(with-fetch)
         applyMiddleware( 
-            // createLogger(), 
+            createLogger(), 
             thunk, 
             middleware
         )

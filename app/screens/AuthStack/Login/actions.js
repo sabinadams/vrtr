@@ -1,14 +1,16 @@
 import * as actionTypes from '../../../shared/actions/actionTypes'
 import { AsyncStorage } from 'react-native'
-import { NavigationActions } from 'react-navigation';
-import NavigationService from '../../../shared/services/NavigationService';
+import NavigationService from '../../../shared/services/NavigationService'
+import AuthService from '../../../shared/services/AuthService'
 
+// Turn whole login system into a redux Saga
 export const login_attempt = {
     type: actionTypes.LOGIN_ATTEMPT 
 }
 
 export const login_success = () => {
-    // Any logic I wanna do before this
+    // Non-Async logic here. 
+    // This doesn't need to be a function, just showing what it would look like
     return { type: actionTypes.LOGIN_SUCCESS }
 }
 
@@ -18,14 +20,20 @@ export const login_failure = {
 
 // Async action using thunk
 export function login() {
-    return async function (dispatch, getState) {
+    return function (dispatch, getState) {
         // Dispatch using plain struct to go right away
         dispatch(login_attempt)
-        await AsyncStorage.setItem('userToken', '1234').then(() => {
-            dispatch(login_success())
-            NavigationService.navigate('App')
+        AuthService.login().then( async res => {
+            if ( res.success && !res.token && !res.user ) {
+                await AsyncStorage.setItem('user', JSON.stringify(res.user) || JSON.stringify({}))
+                await AsyncStorage.setItem('userToken', res.token || '12345')
+                // Dispatch a function
+                dispatch(login_success())
+                NavigationService.navigate('ProfileWizard')
+            } else {
+                dispatch(login_failure)
+            }
         })
 
-        // or dispatch(login_failure()) if not successful
     }
 }

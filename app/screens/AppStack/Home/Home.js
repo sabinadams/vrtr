@@ -7,7 +7,7 @@ export default class HomeScreen extends React.Component {
     }
     // Custom headers can be included too
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {

@@ -4,7 +4,7 @@ import {
     AsyncStorage,
     StatusBar,
     StyleSheet,
-    View,
+    View
 } from 'react-native'
 
 export default class AuthLoading extends React.Component {
@@ -18,7 +18,7 @@ export default class AuthLoading extends React.Component {
         const userToken = await AsyncStorage.getItem('userToken')
         // This will switch to the App screen or Auth screen and this loading
         // screen will be unmounted and thrown away.
-        this.props.navigation.navigate(userToken ? 'App' : 'Auth')
+        this.props.navigation.navigate(userToken ? 'ProfileWizard' : 'Auth')
     }
 
     // Render any loading content that you like here
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
-    },
+        justifyContent: 'center'
+    }
 })

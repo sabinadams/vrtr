@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux' 
 import login, * as fromAuth from './auth.reducer'
+import profilewizard, * as fromProfileWizard from './profile-wizard.reducer'
 
 // Combines all the reducers into one so that we can just include this root reducer instead of 
 // including them all
 export default combineReducers({
-    login
+    login,
+    profilewizard
 })
 
 // Wraps the individual reducers' selectors into functions so that we can tell it which state to grab from
@@ -13,4 +15,5 @@ export default combineReducers({
 export const getAuth = state => 
      fromAuth.getAuth(state.login)
 
-    
+export const getProfileWizardState = state => 
+    fromProfileWizard.getProfileWizardState(state.profilewizard)

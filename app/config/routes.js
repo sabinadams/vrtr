@@ -8,7 +8,9 @@ import AuthLoading from '../screens/Loading/AuthLoading'
 import HomeScreen from '../screens/AppStack/Home'
 import LoginScreen from '../screens/AuthStack/Login'
 import RegisterScreen from '../screens/AuthStack/Register'
-import { addListener } from './nav-utils';
+import ProfileWizardScreen from '../screens/AppStack/ProfileWizard'
+
+import { addListener } from './nav-utils'
 
 // Stacks
 const AppStack = StackNavigator({ Home: HomeScreen })
@@ -21,12 +23,12 @@ let SwitchNav = SwitchNavigator(
     {
         AuthLoading: AuthLoading,
         App: AppStack,
-        Auth: AuthStack
+        Auth: AuthStack,
+        ProfileWizard: ProfileWizardScreen
     }, 
     {
         initialRouteName: 'AuthLoading'
     }
-);
-
+)
 
 export default SwitchNav
