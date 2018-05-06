@@ -1,9 +1,11 @@
+// Theme (Dark/Light), Security/Privacy Settings,   
 import React from 'react'
 import { TextInput, View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import { globalStyles } from '../../../../assets/styles'
 
-class SecurityInfoForm extends React.Component {
+class SettingsInfoForm extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -16,7 +18,7 @@ class SecurityInfoForm extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Some Field"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     value={this.props.testPass}
                     onChangeText={ text => this.props.dispatch({
                         type: 'update_profile_wizard',
@@ -26,7 +28,7 @@ class SecurityInfoForm extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Another Field"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     value={this.props.testPass}
                     onChangeText={ text => this.props.dispatch({
                         type: 'update_profile_wizard',
@@ -39,22 +41,15 @@ class SecurityInfoForm extends React.Component {
 
 }
 const styles = StyleSheet.create({
-    textInput: {
-        height: 60,
-        width: '85%',
-        borderBottomColor: 'rgba(86, 103, 132, 0.4)',
-        borderBottomWidth: 1,
-        color: 'rgba(86, 103, 132, 0.4)',
-        marginBottom: 20
-    },
     header: {
         fontSize: 30,
         fontWeight: '800',
-        color: 'rgba(86, 103, 132, 0.4)'
+        color: 'rgba(86, 103, 132, 0.4)',
+        marginBottom: 20
     }
 })
 
 export default connect(
     state => ({...state.profilewizard}), 
     dispatch => ({dispatch, actions})
-)(SecurityInfoForm)
+)(SettingsInfoForm)

@@ -1,6 +1,7 @@
 import React from 'react'
 import { ScrollView, View, Text, TouchableOpacity, StyleSheet, Image, TextInput, Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { globalStyles } from '../../../assets/styles'
 
 export default class LoginScreen extends React.Component {
     // Custom headers can be included too
@@ -33,15 +34,15 @@ export default class LoginScreen extends React.Component {
                 <View style={styles.spacer}></View>
                 
                 <TextInput
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     onChangeText={(email) => this.setState({ email })}
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Email"
                     value={this.state.email}
-                />
+                    />
             
                 <TextInput
-                    style={styles.textInput}
+                    style={globalStyles.textInput}
                     onChangeText={(password) => this.setState({ password })}
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Password"
@@ -78,14 +79,7 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         justifyContent: 'center',
         backgroundColor: '#252c38',
-        paddingTop: 25
-    },
-    textInput: {
-        height: 60,
-        width: '85%',
-        borderBottomColor: 'rgba(86, 103, 132, 0.4)',
-        borderBottomWidth: 1,
-        color: 'rgba(86, 103, 132, 0.4)'
+        paddingTop: 10
     },
     forgotPassword: {
         width: '85%',
@@ -121,7 +115,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 3,
+        borderRadius: 30,
         marginBottom: 30,
         marginTop: 30,
         backgroundColor: '#53ddf4'

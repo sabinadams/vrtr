@@ -1,2 +1,2 @@
 export {default as PersonalInfoForm} from './PersonalInfo'
-export {default as SecurityInfoForm} from './SecurityInfo'
+export {default as SettingsInfoForm} from './SettingsInfo'

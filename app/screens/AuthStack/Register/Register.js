@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { ScrollView, TouchableOpacity, View, Text, StyleSheet, Image, TextInput } from 'react-native'
-
+import { globalStyles, colors } from '../../../assets/styles'
 export default class RegisterScreen extends React.Component {
     // Custom headers can be included too
     static navigationOptions = { header: null }
@@ -23,7 +23,7 @@ export default class RegisterScreen extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Email"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                 />
                <View style={[styles.iconinput, {width: '85%'}]}>
                     <View style={styles.attachedicon}>
@@ -32,18 +32,23 @@ export default class RegisterScreen extends React.Component {
                     <TextInput
                         placeholderTextColor="rgba(86, 103, 132, 0.4)"
                         placeholder="Username"
-                        style={styles.textInput}
+                        style={[globalStyles.textInput, {
+                            borderTopLeftRadius: 0, 
+                            borderBottomLeftRadius: 0, 
+                            marginBottom: 10,
+                            margin: 0
+                        }]}
                     />
                 </View>
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Password"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                 />
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Repeat Password"
-                    style={styles.textInput}
+                    style={globalStyles.textInput}
                 />
 
                 <TouchableOpacity style={styles.signInButton}>
@@ -67,8 +72,10 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomColor: 'rgba(86, 103, 132, 0.4)',
-        borderBottomWidth: 1,
+        backgroundColor: colors.darkBackground,
+        paddingLeft: 25,
+        borderBottomLeftRadius: 30,
+        borderTopLeftRadius: 30
     },
     attachedicontext: {
         fontSize: 20,
@@ -77,9 +84,7 @@ const styles = StyleSheet.create({
     },
     iconinput: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+        flexDirection: 'row'
     },
     title: {
         color: 'rgba(86, 103, 132, 1)',
@@ -101,17 +106,10 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 3,
+        borderRadius: 30,
         marginBottom: 30,
         marginTop: 30,
         backgroundColor: '#53ddf4'
-    },
-    textInput: {
-        height: 60,
-        width: '85%',
-        borderBottomColor: 'rgba(86, 103, 132, 0.4)',
-        borderBottomWidth: 1,
-        color: 'rgba(86, 103, 132, 0.4)'
     },
     logo: {
         width: 190,

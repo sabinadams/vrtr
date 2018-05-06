@@ -1,6 +1,6 @@
 import React from 'react'
 import { Animated, Image, ScrollView, View, StyleSheet, TouchableOpacity } from 'react-native'
-import { PersonalInfoForm, SecurityInfoForm } from './forms'
+import { PersonalInfoForm, SettingsInfoForm } from './forms'
 import { globalStyles, colors } from '../../../assets/styles'
 import WizardBubble from './WizardBubble'
 
@@ -8,7 +8,7 @@ export default class ProfileWizardScreen extends React.Component {
     squarifyCircle = new Animated.Value(75)
     formViews = [
        <PersonalInfoForm/>,
-       <SecurityInfoForm/>
+       <SettingsInfoForm/>
     ]
     
     constructor(props) { super(props) }
@@ -46,7 +46,7 @@ export default class ProfileWizardScreen extends React.Component {
                     { [...Array(5).keys()].map(i => <WizardBubble index={i} key={i} status={this.props.progress[i]}/>) }
                 </View>
                 <View style={styles.formContainer}>
-                    <ScrollView>{ this.formViews[this.props.form_view] }</ScrollView>
+                    { this.formViews[this.props.form_view] }
                 </View>
             </ScrollView>
         )

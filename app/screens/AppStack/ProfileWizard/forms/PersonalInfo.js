@@ -1,7 +1,9 @@
+// First Name, Last Name, DOB, Bio
 import React from 'react'
 import { TextInput, View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import { globalStyles } from '../../../../assets/styles'
 
 class PersonalInfoForm extends React.Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class PersonalInfoForm extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="First Name"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     value={this.props.testPass}
                     onChangeText={ text => this.props.dispatch({
                         type: 'update_profile_wizard',
@@ -25,7 +27,7 @@ class PersonalInfoForm extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Last Name"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     value={this.props.testPass}
                     onChangeText={ text => this.props.dispatch({
                         type: 'update_profile_wizard',
@@ -35,7 +37,7 @@ class PersonalInfoForm extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="Age"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     value={this.props.testPass}
                     onChangeText={ text => this.props.dispatch({
                         type: 'update_profile_wizard',
@@ -45,7 +47,7 @@ class PersonalInfoForm extends React.Component {
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
                     placeholder="About"
-                    style={styles.textInput}
+                    style={[globalStyles.textInput, {marginBottom: 10}]}
                     value={this.props.testPass}
                     onChangeText={ text => this.props.dispatch({
                         type: 'update_profile_wizard',
@@ -59,18 +61,11 @@ class PersonalInfoForm extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    textInput: {
-        height: 60,
-        width: '85%',
-        borderBottomColor: 'rgba(86, 103, 132, 0.4)',
-        borderBottomWidth: 1,
-        color: 'rgba(86, 103, 132, 0.4)',
-        marginBottom: 20
-    },
     header: {
         fontSize: 30,
         fontWeight: '800',
-        color: 'rgba(86, 103, 132, 0.4)'
+        color: 'rgba(86, 103, 132, 0.4)',
+        marginBottom: 20
     }
 })
 
