@@ -15,26 +15,23 @@ class WizardBubble extends React.Component {
     getCirclePosition( index ) {
         switch(index) {
             case 0:
-                return { marginLeft: -150, top: 250 }
+                return { marginLeft: -150, top: 230 }
                 break
             case 1:
-                return { marginLeft: -140, top: 145 }
+                return { marginLeft: -140, top: 125 }
                 break
             case 2: 
-                return { top: 90 }
+                return { top: 70 }
                 break
             case 3:
-                return { marginLeft: 90, top: 145 }
+                return { marginLeft: 90, top: 125 }
                 break
             case 4:
-                return { marginLeft: 100, top: 250 }
+                return { marginLeft: 100, top: 230 }
         }
     }
 
-    constructor(props) {
-        super(props)
-        console.log(props)
-    }
+    constructor(props) { super(props) }
 
     render() {
         return (

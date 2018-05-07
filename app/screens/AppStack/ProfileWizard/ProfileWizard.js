@@ -35,21 +35,21 @@ export default class ProfileWizardScreen extends React.Component {
     render() {
         return (
             <ScrollView scrollEnabled={false} contentContainerStyle={globalStyles.viewContainer}>
-                    <View style={styles.circlesContainer}>
-                        <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row'}}>
-                            <Animated.View style={[styles.centerCircle, globalStyles.centerHV, {borderRadius: this.squarifyCircle}]}>
+                <View style={styles.circlesContainer}>
+                    <View style={{alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'row'}}>
+                        <Animated.View style={[styles.centerCircle, globalStyles.centerHV, {borderRadius: this.squarifyCircle}]}>
+                            <TouchableOpacity>
                                 <Image style={styles.logo} source={require('./slr-camera.png')} />
-                            </Animated.View>
-                            <TouchableOpacity style={[styles.circularPic, this.getShapeOptionColor('circle')]} title="Circle" onPress={() => this.reshapeProfilePic(75)}/>
-                            <TouchableOpacity style={[styles.squareishPic, this.getShapeOptionColor('squareish')]} title="Square" onPress={() => this.reshapeProfilePic(10)}/>
-                        </TouchableOpacity>
-                        { [...Array(5).keys()].map(i => <WizardBubble index={i} key={i} status={this.props.progress[i]}/>) }
+                            </TouchableOpacity>
+                        </Animated.View>
+                        <TouchableOpacity style={[styles.circularPic, this.getShapeOptionColor('circle')]} onPress={() => this.reshapeProfilePic(75)}/>
+                        <TouchableOpacity style={[styles.squareishPic, this.getShapeOptionColor('squareish')]} onPress={() => this.reshapeProfilePic(10)}/>
                     </View>
-                    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={10} style={{display: 'flex', flexDirection: 'row', flex: 1}} >
-                        <ScrollView style={styles.formContainer}>
-                            { this.formViews[this.props.form_view] }
-                        </ScrollView>
-                    </KeyboardAvoidingView>
+                    { [...Array(5).keys()].map(i => <WizardBubble index={i} key={i} status={this.props.progress[i]}/>) }
+                </View>
+                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={10} contentContainerStyle={styles.formAnimatedContent} style={styles.formAnimatedContainer}>
+                    <ScrollView style={styles.formContainer}>{ this.formViews[this.props.form_view] }</ScrollView>
+                </KeyboardAvoidingView>
             </ScrollView>
         )
     }
@@ -58,11 +58,11 @@ export default class ProfileWizardScreen extends React.Component {
 const styles = StyleSheet.create({
     circlesContainer: {
         width: '100%',
-        height: 380,
+        height: 380
     },
     centerCircle: {
         position: 'absolute',
-        top: 160,
+        top: 140,
         left:  '50%',
         marginLeft: -75,
         width: 150,
@@ -71,9 +71,21 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderColor: colors.primaryHighlight
     },
-    formContainer: {
-        width: '100%',
+    formAnimatedContainer: {
+        display: 'flex',
+        flexDirection: 'row', 
         flex: 1,
+    },
+    formAnimatedContent: {
+        width: '100%',
+        borderColor: 'red',
+        shadowOffset: {height: -5},
+        shadowColor: colors.primaryBackground,
+        shadowOpacity: 1
+    },
+    formContainer: {
+        flex: 1,
+        backgroundColor: colors.primaryBackground
     },
     logo: {
         width: 75,
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
         width: 30,
         backgroundColor: 'transparent',
         borderWidth: 3,
-        marginTop: 325,
+        marginTop: 305,
         marginRight: 15
     },
     squareishPic: {
@@ -94,6 +106,6 @@ const styles = StyleSheet.create({
         width: 30,
         backgroundColor: 'transparent',
         borderWidth: 3,
-        marginTop: 325
+        marginTop: 305
     }
 })
