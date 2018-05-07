@@ -12,7 +12,7 @@ class PersonalInfoForm extends React.Component {
     
     render() {
         return (
-            <View style={{width: '100%', alignItems:'center'}}>
+            <View style={{width: '100%', alignItems: 'center'}}>
                 <Text style={styles.header}>Personal</Text>
                 <TextInput
                     placeholderTextColor="rgba(86, 103, 132, 0.4)"
